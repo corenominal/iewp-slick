@@ -8,3 +8,8 @@ if ( ! defined( 'WPINC' ) ) { die('Direct access prohibited!'); }
  * Version: 0.0.1
  * Author URI: https://corenominal.org
  */
+
+/**
+ * Admin screens
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'admin.php' );
