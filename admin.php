@@ -31,8 +31,8 @@ function iewp_slick_admin_options()
 		'Slick Carousels - Add New', // page title
 		'Add New', // menu title
 		'edit_posts', // capability
-		'iewp_slick_carousels_new', // slug
-		'iewp_slick_carousels_new_callback' // callback function
+		'iewp_slick_carousels_edit', // slug
+		'iewp_slick_carousels_edit_callback' // callback function
 	);
 
 }
@@ -42,4 +42,4 @@ add_action( 'admin_menu', 'iewp_slick_admin_options' );
  * Include admin views
  */
 require_once( plugin_dir_path( __FILE__ ) . 'admin/iewp_slick_carousels.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'admin/iewp_slick_carousels_new.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'admin/iewp_slick_carousels_edit.php' );
