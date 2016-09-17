@@ -10,6 +10,7 @@ function iewp_slick_create_tables()
 	$sql = "CREATE TABLE IF NOT EXISTS `iewp_slick_carousels` (
 			  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 			  `name` varchar(255) NOT NULL DEFAULT '',
+			  `options` text NOT NULL DEFAULT '',
 			  PRIMARY KEY (`id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	$query = $wpdb->query( $sql );
