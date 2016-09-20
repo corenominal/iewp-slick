@@ -12,6 +12,9 @@ function iewp_iewp_slick_carousels_edit_scripts( $hook )
 		return;
 	}
 
+	wp_register_style( 'iewp_slick_carousels_edit_css', plugin_dir_url( __FILE__ ) . 'css/iewp_slick_carousels_edit.css', array(), '0.0.1', 'all' );
+	wp_enqueue_style( 'iewp_slick_carousels_edit_css' );
+
 	wp_register_script( 'iewp_slick_carousels_edit_js', plugin_dir_url( __FILE__ ) . 'js/iewp_slick_carousels_edit.js', array('jquery'), '0.0.1', true );
 	wp_enqueue_script( 'iewp_slick_carousels_edit_js' );
 
@@ -29,7 +32,11 @@ function iewp_slick_carousels_edit_callback()
 
 		<h1>IEWP Slick Carousels &mdash; <span id="action">Add New</span></h1>
 
-		<p>TODO: present options for creating a new carousel.</p>
+		<div class="iewp-slick-carousel">
+
+			<input type="text" class="iewp-slick-title" size="30" value="" id="title" spellcheck="true" autocomplete="off" placeholder="Carousel Name...">
+
+		</div>
 
 	</div>
 	<?php
