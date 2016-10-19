@@ -22,3 +22,8 @@ register_activation_hook( __FILE__, 'iewp_slick_activate' );
  * Admin screens
  */
 require_once( plugin_dir_path( __FILE__ ) . 'admin.php' );
+
+/**
+ * Endpoints
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'endpoints.php' );
