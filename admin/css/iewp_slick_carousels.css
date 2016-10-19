@@ -1,0 +1,21 @@
+table.carousels-list th:nth-child(3),
+table.carousels-list td:nth-child(3) {
+    text-align: right;
+}
+
+@media screen and (max-width: 782px) {
+    table.carousels-list th:nth-child(3),
+    table.carousels-list td:nth-child(3) {
+        text-align: left;
+    }
+}
+
+.remove-carousel-prompt {
+    display: none;
+    margin-top: 6px;
+}
+
+.remove-carousel-prompt span {
+    display: inline-block;
+    margin: 6px 10px 0 0;
+}
