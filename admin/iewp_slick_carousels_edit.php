@@ -4,10 +4,10 @@ if ( ! defined( 'WPINC' ) ) { die('Direct access prohibited!'); }
 /**
  * Enqueue additional JavaScript and CSS
  */
-function iewp_iewp_slick_carousels_edit_scripts( $hook )
+function iewp_slick_carousels_edit_scripts( $hook )
 {
 
-	if( 'slick-carousels_page_iewp_slick_carousels_edit' != $hook )
+	if( 'admin_page_iewp_slick_carousels_edit' != $hook )
 	{
 		return;
 	}
@@ -20,7 +20,7 @@ function iewp_iewp_slick_carousels_edit_scripts( $hook )
 
 	wp_enqueue_media();
 }
-add_action( 'admin_enqueue_scripts', 'iewp_iewp_slick_carousels_edit_scripts' );
+add_action( 'admin_enqueue_scripts', 'iewp_slick_carousels_edit_scripts' );
 
 /**
  * Output HTML
@@ -30,13 +30,7 @@ function iewp_slick_carousels_edit_callback()
 	?>
 	<div class="wrap">
 
-		<h1>IEWP Slick Carousels &mdash; <span id="action">Add New</span></h1>
-
-		<div class="iewp-slick-carousel">
-
-			<input type="text" class="iewp-slick-title" size="30" value="" id="title" spellcheck="true" autocomplete="off" placeholder="Carousel Name...">
-
-		</div>
+		<h1>IEWP Slick Carousels &mdash; <span id="action">Edit</span></h1>
 
 	</div>
 	<?php

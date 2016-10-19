@@ -27,9 +27,9 @@ function iewp_slick_admin_options()
 	);
 
 	add_submenu_page(
-		'iewp_slick_carousels', // parent slug
+		null, // no parent slug (removes from menu) admin.php?page=iewp_slick_carousels_edit
 		'Slick Carousels - Add New', // page title
-		'Add New', // menu title
+		'Edit', // menu title
 		'edit_posts', // capability
 		'iewp_slick_carousels_edit', // slug
 		'iewp_slick_carousels_edit_callback' // callback function
