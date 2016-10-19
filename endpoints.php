@@ -5,9 +5,10 @@ if ( ! defined( 'WPINC' ) ) { die('Direct access prohibited!'); }
  */
 function iewp_slick_register_endpoints()
 {
-	register_rest_route( 'iewp_slick', '/get_carousels', array(
+    // endpoint:/wp-json/iewp_slick/get_carousels
+    register_rest_route( 'iewp_slick', '/carousels_admin', array(
         'methods' => 'GET',
-        'callback' => 'iewp_slick_rest_get_carousels',
+        'callback' => 'iewp_slick_carousels_admin',
 		'show_in_index' => false,
     ));
 }

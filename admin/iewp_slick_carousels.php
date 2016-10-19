@@ -34,7 +34,7 @@ function iewp_slick_carousels_callback()
 
 		<p>Carousels are used for displaying image slideshows within posts and pages.</p>
 
-		<table class="carousels-list wp-list-table widefat fixed striped posts">
+		<table id="iewp-slick-carousels" class="carousels-list wp-list-table widefat fixed striped posts" data-endpoint="<?php echo site_url('wp-json/iewp_slick/carousels_admin') ?>" data-apikey="<?php echo get_option( 'iewp_slick_apikey', '' ); ?>">
         	<thead>
         		<tr>
         			<th class="manage-column column-name column-primary" scope="col">Name</th>
