@@ -1,6 +1,8 @@
 jQuery(document).ready(function($)
 {
-
+    /**
+	 * List carousel
+	 */
     function get_carousels()
     {
         var endpoint = $( '#iewp-slick-carousels' ).data( 'endpoint' );
@@ -45,6 +47,16 @@ jQuery(document).ready(function($)
     }
 
     get_carousels();
+
+    /**
+	 * Edit carousel
+	 */
+	$( document ).on( 'click', '.iewp-slick-edit-carousel-button', function( e )
+	{
+		e.preventDefault();
+		var id = $( this ).attr( 'data-id' );
+        window.location.href = "admin.php?page=iewp_slick_carousels_edit&carousel=" + id;
+	});
 
     /**
 	 * Remove carousel from list

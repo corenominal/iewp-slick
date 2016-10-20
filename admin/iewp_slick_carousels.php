@@ -30,7 +30,7 @@ function iewp_slick_carousels_callback()
 	?>
 	<div class="wrap">
 
-		<h1>IEWP Slick Carousels <a href="https://corenominal.org/wp-admin/post-new.php?post_type=page" class="page-title-action">Add New</a></h1>
+		<h1>IEWP Slick Carousels <a href="admin.php?page=iewp_slick_carousels_create" id="add-new-carousel" class="page-title-action">Add New</a></h1>
 
 		<p>Carousels are used for displaying image slideshows within posts and pages.</p>
 

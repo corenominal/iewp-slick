@@ -48,8 +48,37 @@ function iewp_slick_carousels_admin( $request_data )
 			return $data;
 			break;
 
+        case 'create_carousel':
+            if( $data['apikey'] != $apikey )
+            {
+                $data['error'] = 'Invalid API key';
+                return $data;
+            }
+            if( !isset( $data['name'] ) || empty( $data['name'] ) )
+            {
+                $data['error'] = 'Please provide a name for the carousel';
+                return $data;
+            }
+            global $wpdb;
+    		$sql = "SELECT * FROM iewp_slick_carousels
+    				WHERE name = '" . $data['name'] . "';";
+    		$result = $wpdb->get_results( $sql, ARRAY_A );
+
+    		if( $wpdb->num_rows > 0 )
+            {
+                $data['error'] = 'Name already in use, try another';
+                return $data;
+            }
+            unset( $data['action'] );
+			unset( $data['apikey'] );
+            $data['options'] = '';
+            $wpdb->insert( 'iewp_slick_carousels', $data, array( '%s', '%s' ) );
+            $data['id'] = $wpdb->insert_id;
+			return $data;
+			break;
+
 		default:
-			$data['error'] = 'Please provide an action';
+			$data['error'] = 'Please provide a valid action';
 			return $data;
 			break;
 	}
