@@ -18,7 +18,6 @@ function iewp_slick_carousels_scripts( $hook )
 	wp_register_script( 'iewp_slick_carousels_js', plugin_dir_url( __FILE__ ) . 'js/iewp_slick_carousels.js', array('jquery'), '0.0.1', true );
 	wp_enqueue_script( 'iewp_slick_carousels_js' );
 
-	wp_enqueue_media();
 }
 add_action( 'admin_enqueue_scripts', 'iewp_slick_carousels_scripts' );
 

@@ -32,6 +32,28 @@ function iewp_slick_carousels_edit_callback()
 
 		<h1>IEWP Slick Carousels &mdash; <span id="action">Edit</span></h1>
 
+		<label for="iewp-slick-carousel-name">Carousel Name:</label>
+		<input type="text" class="iewp-slick-input iewp-slick-carousel-name" name="iewp-slick-carousel-name" size="30" value="" id="iewp-slick-carousel-name" spellcheck="true" autocomplete="off">
+
+		<p>
+			<button id="iewp-slick-save-carousel" class="button button-primary button-large" disabled="disabled">Save Carousel</button>
+			<button id="iewp-slick-add-slide" class="button button-large">Add Slide</button>
+		</p>
+
+		<table id="iewp-slick-carousel-slides" class="slides-list wp-list-table widefat fixed striped posts" data-carousel="<?php echo $_GET['carousel']; ?>" data-endpoint="<?php echo site_url('wp-json/iewp_slick/carousels_admin') ?>" data-apikey="<?php echo get_option( 'iewp_slick_apikey', '' ); ?>">
+        	<thead>
+        		<tr>
+        			<th class="manage-column column-name column-primary" scope="col">Image</th>
+        			<th class="manage-column column-address" scope="col">Details</th>
+        			<th class="manage-column column-options" scope="col">Options</th>
+        		</tr>
+        	</thead>
+
+        	<tbody id="the-list">
+        		<tr><td colspan="3">Loading slides ...</td></tr>
+        	</tbody>
+        </table>
+
 	</div>
 	<?php
 }

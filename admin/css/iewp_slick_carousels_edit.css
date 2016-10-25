@@ -1,0 +1,46 @@
+table.slides-list th:nth-child(3),
+table.slides-list td:nth-child(3) {
+    text-align: right;
+}
+
+@media screen and (max-width: 782px) {
+    table.slides-list th:nth-child(3),
+    table.slides-list td:nth-child(3) {
+        text-align: left;
+    }
+}
+
+.remove-slide-prompt {
+    display: none;
+    margin-top: 6px;
+}
+
+.remove-slide-prompt span {
+    display: inline-block;
+    margin: 6px 10px 0 0;
+}
+
+tbody tr:first-child button.button.iewp-slick-row-up {
+    display: none;
+}
+
+tbody tr:last-child button.button.iewp-slick-row-down {
+    display: none;
+}
+
+.iewp-slick-slide-thumb {
+    max-width: 200px;
+}
+
+.iewp_slick_saving img {
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.iewp-slick-carousel-name {
+    padding: 3px 8px;
+    font-size: 1.7em;
+    height: 1.7em;
+    line-height: 100%;
+    width: 100%;
+}
