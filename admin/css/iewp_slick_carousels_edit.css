@@ -44,3 +44,21 @@ tbody tr:last-child button.button.iewp-slick-row-down {
     line-height: 100%;
     width: 100%;
 }
+
+tr.iewp-slide td:nth-child(2) {
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 782px) {
+    tr.iewp-slide td:nth-child(2) {
+        padding-bottom: 0;
+    }
+    tr.iewp-slide td:nth-child(3) {
+        padding-bottom: 40px;
+    }
+}
+
+input.regular-text {
+    width: 98%;
+    margin-bottom: 4px;
+}

@@ -57,12 +57,18 @@ jQuery(document).ready(function($){
 			{
 				$.each(data.slides, function(i, slide)
 				{
-					slides += '<tr>';
+					slides += '<tr class="iewp-slide">';
                     slides += '<td><img class="iewp-slick-slide-thumb" src="' + slide.img_url + '"></td>';
 	        		slides += '<td>';
-                    slides += '<input type="text" class="regular-text iewp-slick-input iewp-slick-img-title" value="' + slide.img_title + '" placeholder="Image description ...">';
+                    slides += '<label>Title';
+                    slides += '<input type="text" class="regular-text iewp-slick-input iewp-slick-img-title" value="' + slide.img_title + '" placeholder="Image title ...">';
+                    slides += '</label>';
+                    slides += '<label>Alt text';
                     slides += '<input type="text" class="regular-text iewp-slick-input iewp-slick-img-alt" value="' + slide.img_alt + '" placeholder="Alt text ...">';
+                    slides += '</label>';
+                    slides += '<label>Link';
                     slides += '<input type="text" class="regular-text iewp-slick-input iewp-slick-link-url" value="' + slide.link_url + '" placeholder="http://...">';
+                    slides += '</label>';
                     slides += '</td>';
 					slides += '<td>';
                     slides += '<button class="button iewp-slick-row-down">&darr;</button> ';
@@ -244,9 +250,15 @@ jQuery(document).ready(function($){
             slide  = '<tr>';
             slide += '<td><img class="iewp-slick-slide-thumb" src="' + attachment.url + '"></td>';
             slide += '<td>';
-            slide += '<input type="text" class="regular-text iewp-slick-input iewp-slick-img-title" value="' + attachment.title + '" placeholder="Image description ...">';
+            slide += '<label>Title';
+            slide += '<input type="text" class="regular-text iewp-slick-input iewp-slick-img-title" value="' + attachment.title + '" placeholder="Image title ...">';
+            slide += '</label>';
+            slide += '<label>Alt text';
             slide += '<input type="text" class="regular-text iewp-slick-input iewp-slick-img-alt" value="' + attachment.alt + '" placeholder="Alt text ...">';
+            slide += '</label>';
+            slide += '<label>Link';
             slide += '<input type="text" class="regular-text iewp-slick-input iewp-slick-link-url" value="' + attachment.url + '" placeholder="http://...">';
+            slide += '</label>';
             slide += '</td>';
             slide += '<td>';
             slide += '<button class="button iewp-slick-row-down">&darr;</button> ';
