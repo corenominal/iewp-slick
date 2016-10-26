@@ -28,3 +28,13 @@ require_once( plugin_dir_path( __FILE__ ) . 'admin.php' );
  * Endpoints
  */
 require_once( plugin_dir_path( __FILE__ ) . 'endpoints.php' );
+
+/**
+ * Shortcodes
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'shortcodes/shortcodes.php' );
+
+/**
+ * Metaboxes
+ */
+require_once( plugin_dir_path( __FILE__ ) . 'metabox/metabox.php' );

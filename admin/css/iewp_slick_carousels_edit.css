@@ -43,6 +43,7 @@ tbody tr:last-child button.button.iewp-slick-row-down {
     height: 1.7em;
     line-height: 100%;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 tr.iewp-slide td:nth-child(2) {

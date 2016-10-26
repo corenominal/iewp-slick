@@ -38,6 +38,7 @@ function iewp_slick_carousels_callback()
         		<tr>
         			<th class="manage-column column-name column-primary" scope="col">Name</th>
         			<th class="manage-column column-address" scope="col">Slides</th>
+					<th class="manage-column column-address" scope="col">Shortcode</th>
         			<th class="manage-column column-options" scope="col">Options</th>
         		</tr>
         	</thead>

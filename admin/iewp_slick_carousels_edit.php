@@ -32,8 +32,11 @@ function iewp_slick_carousels_edit_callback()
 
 		<h1>IEWP Slick Carousels &mdash; <span id="action">Edit</span></h1>
 
-		<label for="iewp-slick-carousel-name">Carousel Name:</label>
-		<input type="text" class="iewp-slick-input iewp-slick-carousel-name" name="iewp-slick-carousel-name" size="30" value="" id="iewp-slick-carousel-name" spellcheck="true" autocomplete="off">
+		<label for="iewp-slick-carousel-name">Carousel Name</label>
+		<input type="text" class="iewp-slick-input iewp-slick-carousel-name" name="iewp-slick-carousel-name" value="" id="iewp-slick-carousel-name" spellcheck="true" autocomplete="off">
+
+		<label for="iewp-slick-carousel-shortcode">Shortcode:</label>
+		<code>[iewp-slick-carousel id=<?php echo $_GET['carousel']; ?>]</code>
 
 		<p>
 			<button id="iewp-slick-save-carousel" class="button button-primary button-large" disabled="disabled">Save Carousel</button>
