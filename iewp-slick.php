@@ -32,6 +32,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'endpoints.php' );
 /**
  * Shortcodes
  */
+require_once( plugin_dir_path( __FILE__ ) . 'shortcodes/init.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'shortcodes/shortcodes.php' );
 
 /**

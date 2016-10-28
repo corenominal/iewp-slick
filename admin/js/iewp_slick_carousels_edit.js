@@ -24,6 +24,11 @@ jQuery(document).ready(function($){
         else
         {
             $( '#iewp-slick-carousel-name' ).val( data.carousel.name );
+            var options = JSON.parse( data.carousel.options );
+            $.each(options, function(key, value)
+            {
+                $( '#iewp-slick-option-' + key ).val( value );
+            });
             get_slides();
         }
     })
@@ -57,7 +62,7 @@ jQuery(document).ready(function($){
 			{
 				$.each(data.slides, function(i, slide)
 				{
-					slides += '<tr class="iewp-slide">';
+					slides += '<tr class="iewp-slick-slide">';
                     slides += '<td><img class="iewp-slick-slide-thumb" src="' + slide.img_url + '"></td>';
 	        		slides += '<td>';
                     slides += '<label>Title';
@@ -109,30 +114,6 @@ jQuery(document).ready(function($){
 
     $( document ).on( 'click', '.remove-slide-prompt-yes', function( e )
 	{
-		// e.preventDefault();
-		// var data = {
-		// 	action: 'delete_slide',
-		// 	id: $( this ).attr( 'data-id' ),
-        //     apikey: apikey
-        // };
-		// $.ajax(
-		// {
-		// 	url: endpoint,
-		// 	type: 'GET',
-		// 	dataType: 'json',
-		// 	data: data
-		// })
-		// .done(function( data )
-		// {
-        //     console.log( data );
-        //     var carousels = '<tr><td colspan="3">Refreshing plugins ...</td></tr>';
-		// 	$( '#the-list' ).html( carousels );
-		// 	get_slides();
-		// })
-		// .fail(function()
-		// {
-		// 	console.log("OH NOES! AJAX error");
-		// });
         e.preventDefault();
         var row = $(this).parents("tr:first");
         row.remove();
@@ -150,7 +131,6 @@ jQuery(document).ready(function($){
 	{
         var row = $(this).parents("tr:first");
         row.insertBefore(row.prev());
-        //save_order();
         $( '#iewp-slick-save-carousel' ).removeAttr( 'disabled' );
     });
 
@@ -158,18 +138,8 @@ jQuery(document).ready(function($){
 	{
         var row = $(this).parents("tr:first");
         row.insertAfter(row.next());
-        //save_order();
         $( '#iewp-slick-save-carousel' ).removeAttr( 'disabled' );
     });
-
-    // function save_order()
-    // {
-    //     console.log( 'foo' );
-    //     $( 'tbody tr' ).each(function( i )
-    //     {
-    //       console.log( i + ": " + $( this ).data( 'id' ) );
-    //     });
-    // }
 
     /**
 	 * Edit slide
@@ -247,7 +217,7 @@ jQuery(document).ready(function($){
 		mediaUploader.on('select',function()
 		{
 			attachment = mediaUploader.state().get('selection').first().toJSON();
-            slide  = '<tr>';
+            slide  = '<tr class="iewp-slick-slide">';
             slide += '<td><img class="iewp-slick-slide-thumb" src="' + attachment.url + '"></td>';
             slide += '<td>';
             slide += '<label>Title';
@@ -304,8 +274,16 @@ jQuery(document).ready(function($){
         $( this ).removeClass( 'button-primary' );
         var name = $( '#iewp-slick-carousel-name' ).val().trim();
         var carousel_id = $( '#iewp-slick-carousel-slides' ).data('carousel');
+        var options = {};
+        $( '.iewp-slick-option' ).each(function( i )
+        {
+            var key = $( this ).attr( 'id' );
+            key = key.replace( 'iewp-slick-option-', '' );
+            var val = $( this ).val();
+            options[key] = val;
+        });
         var carousel = [];
-        $( 'tbody tr' ).each(function( i )
+        $( 'tr.iewp-slick-slide' ).each(function( i )
         {
             row = $( this );
             slide = {
@@ -322,6 +300,7 @@ jQuery(document).ready(function($){
             apikey: apikey,
             action: 'save_carousel',
             carousel: carousel,
+            options: options,
             name: name,
             carousel_id: carousel_id,
         };
@@ -332,15 +311,22 @@ jQuery(document).ready(function($){
             data: data
         })
         .done(function( data ) {
-            console.log( data );
             $( '#iewp-slick-carousel-name' ).val( data.name );
             $( '#iewp-slick-save-carousel' ).addClass( 'button-primary' );
-            $( '#iewp-slick-save-carousel' ).html( 'save-carousel' );
+            $( '#iewp-slick-save-carousel' ).html( 'Save Carousel' );
         })
         .fail(function() {
             console.log("error");
         });
 
+    });
+
+    /**
+     * Toggle options panel
+     */
+    $( document ).on( 'click', '#iewp-slick-options', function()
+    {
+        $( '#iewp-slick-options-panel' ).slideToggle(400);
     });
 
 });

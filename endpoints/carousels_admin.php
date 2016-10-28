@@ -30,7 +30,7 @@ function iewp_slick_carousels_admin( $request_data )
 	{
 		case 'list_carousels':
 			global $wpdb;
-			$sql = "SELECT iewp_slick_carousels.id, name, COUNT(carousel_id) AS images
+			$sql = "SELECT iewp_slick_carousels.id, name, FROM_UNIXTIME( date_created, '%D %M %Y' ) AS created, COUNT(carousel_id) AS images
                       FROM iewp_slick_carousels LEFT JOIN iewp_slick_carousel_images
                         ON iewp_slick_carousels.id = iewp_slick_carousel_images.carousel_id
                      GROUP BY iewp_slick_carousels.id
@@ -70,7 +70,20 @@ function iewp_slick_carousels_admin( $request_data )
             }
             unset( $data['action'] );
 			unset( $data['apikey'] );
-            $data['options'] = '';
+            $data['options'] = array(
+                'titles' => 'true',
+                'arrows' => 'true',
+                'dots' => 'true',
+                'speed' => '500',
+                'fade' => 'false',
+                'centerMode' => 'false',
+                'cssEase' => 'ease-out',
+                'autoplay' => 'true',
+                'autoplaySpeed' => '4000',
+                'infinite' => 'true'
+            );
+            $data['options'] = json_encode( $data['options'] );
+            $data['date_created'] = time();
             $wpdb->insert( 'iewp_slick_carousels', $data, array( '%s', '%s' ) );
             $data['id'] = $wpdb->insert_id;
 			return $data;
@@ -119,24 +132,28 @@ function iewp_slick_carousels_admin( $request_data )
             {
                 $data['name'] = 'Untitled ' . $data['carousel_id'];
             }
+            $options = json_encode( $data['options'] );
             $wpdb->update( 'iewp_slick_carousels', // table
-                           array( 'name' => $data['name'] ), // data
+                           array( 'name' => $data['name'], 'options' => $options ), // data
                            array( 'id' => $data['carousel_id'] ), // where
-                           array( '%s' ), // data format
+                           array( '%s', '%s' ), // data format
                            array( '%d' ) // where format
                          );
-            foreach ($data['carousel'] as $slide)
+            if( isset( $data['carousel'] ) && is_array( $data['carousel'] ) )
             {
-                $wpdb->insert( 'iewp_slick_carousel_images',
-                    array( 'carousel_id' => $slide['carousel_id'],
-                           'order' => $slide['order'],
-                           'img_url' => $slide['img_url'],
-                           'img_alt' => $slide['img_alt'],
-                           'img_title' => $slide['img_title'],
-                           'link_url' => $slide['link_url']
-                    ),
-                    array( '%d', '%d', '%s', '%s', '%s', '%s' )
-                );
+                foreach ($data['carousel'] as $slide)
+                {
+                    $wpdb->insert( 'iewp_slick_carousel_images',
+                        array( 'carousel_id' => $slide['carousel_id'],
+                               'order' => $slide['order'],
+                               'img_url' => $slide['img_url'],
+                               'img_alt' => $slide['img_alt'],
+                               'img_title' => $slide['img_title'],
+                               'link_url' => $slide['link_url']
+                        ),
+                        array( '%d', '%d', '%s', '%s', '%s', '%s' )
+                    );
+                }
             }
 
 			unset( $data['action'] );

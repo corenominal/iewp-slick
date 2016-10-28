@@ -63,3 +63,11 @@ input.regular-text {
     width: 98%;
     margin-bottom: 4px;
 }
+
+.iewp-slick-options-panel {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    display: none;
+}

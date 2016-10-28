@@ -20,7 +20,7 @@ jQuery(document).ready(function($)
             var carousels = '';
 			if( data.num_rows == 0 )
 			{
-				carousels = '<tr><td colspan="4">No carousels found!</td></tr>';
+				carousels = '<tr><td colspan="5">No carousels found!</td></tr>';
 			}
 			else
 			{
@@ -29,7 +29,8 @@ jQuery(document).ready(function($)
 					carousels += '<tr><td>' + carousel.name + '</td>';
 	        		carousels += '<td>' + carousel.images + '</td>';
                     carousels += '<td>[iewp-slick-carousel id=' + carousel.id + ']</td>';
-					carousels += '<td class="iewp-slick-carousel-options-cell' + carousel.id + '">';
+					carousels += '<td>' + carousel.created + '</td>';
+                    carousels += '<td class="iewp-slick-carousel-options-cell' + carousel.id + '">';
                     carousels += '<button data-id="' + carousel.id + '" class="button iewp-slick-edit-carousel-button">Edit</button> ';
 					carousels += '<button data-id="' + carousel.id + '" class="button iewp-slick-remove-carousel-button">Remove</button>';
 					carousels += '<div class="remove-carousel-prompt remove-carousel-prompt' + carousel.id + '">';
@@ -95,7 +96,7 @@ jQuery(document).ready(function($)
 		.done(function( data )
 		{
             console.log( data );
-            var carousels = '<tr><td colspan="3">Refreshing plugins ...</td></tr>';
+            var carousels = '<tr><td colspan="5">Refreshing plugins ...</td></tr>';
 			$( '#the-list' ).html( carousels );
 			get_carousels();
 		})

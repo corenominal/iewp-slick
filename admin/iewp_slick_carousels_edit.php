@@ -39,9 +39,134 @@ function iewp_slick_carousels_edit_callback()
 		<code>[iewp-slick-carousel id=<?php echo $_GET['carousel']; ?>]</code>
 
 		<p>
-			<button id="iewp-slick-save-carousel" class="button button-primary button-large" disabled="disabled">Save Carousel</button>
+			<button id="iewp-slick-options" class="button button-large">Toggle Options</button>
 			<button id="iewp-slick-add-slide" class="button button-large">Add Slide</button>
+			<button id="iewp-slick-save-carousel" class="button button-primary button-large" disabled="disabled">Save Carousel</button>
 		</p>
+
+		<div id="iewp-slick-options-panel" class="iewp-slick-options-panel">
+			<h3>Carousel Options</h3>
+			<table class="form-table">
+				<tbody>
+					<tr>
+						<th scope="row">Show titles</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-titles">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Enable titles within slides.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Show arrows</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-arrows">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Enable next/previous arrow buttons.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Show dots</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-dots">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Enable dots under carousel for selecting slides.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Animation speed</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-speed">
+								<?php
+								$speed = 200;
+								while ( $speed <= 750 )
+								{
+									echo '<option value="' . $speed . '">' . $speed . '</option>';
+									$speed = $speed + 50;
+								}
+								?>
+							</select>
+							<p class="description">Slide switching animation speed in milliseconds.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Fade animation</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-fade">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Crossfade bewteen slides, instead of sliding.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Centre mode</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-centerMode">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Enables centered view with partial prev/next slides.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">CSS Ease</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-cssEase">
+								<option value="linear">linear</option>
+								<option value="ease">ease</option>
+								<option value="ease-in-out">ease-in-out</option>
+								<option value="ease-in">ease-in</option>
+								<option value="ease-out">ease-out</option>
+								<option value="cubic-bezier(.87,-.41,.19,1.44)">bounce</option>
+							</select>
+							<p class="description">CSS3 animation easing.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Autoplay</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-autoplay">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Enables aotoplay.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Autoplay Speed</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-autoplaySpeed">
+								<?php
+								$speed = 1000;
+								while ( $speed <= 10000 )
+								{
+									echo '<option value="' . $speed . '">' . $speed . '</option>';
+									$speed = $speed + 500;
+								}
+								?>
+							</select>
+							<p class="description">Autoplay speed in milliseconds.</p>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Infinite</th>
+						<td>
+							<select class="iewp-slick-option iewp-slick-input" id="iewp-slick-option-infinite">
+								<option value="true">true</option>
+								<option value="false">false</option>
+							</select>
+							<p class="description">Infinite loop sliding.</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 		<table id="iewp-slick-carousel-slides" class="slides-list wp-list-table widefat fixed striped posts" data-carousel="<?php echo $_GET['carousel']; ?>" data-endpoint="<?php echo site_url('wp-json/iewp_slick/carousels_admin') ?>" data-apikey="<?php echo get_option( 'iewp_slick_apikey', '' ); ?>">
         	<thead>

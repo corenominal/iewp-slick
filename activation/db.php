@@ -11,6 +11,7 @@ function iewp_slick_create_tables()
 			  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 			  `name` varchar(255) NOT NULL DEFAULT '',
 			  `options` text NOT NULL DEFAULT '',
+			  `date_created` int(11) NOT NULL,
 			  PRIMARY KEY (`id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 	$query = $wpdb->query( $sql );

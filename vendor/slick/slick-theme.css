@@ -71,7 +71,7 @@
     line-height: 1;
 
     opacity: .75;
-    color: white;
+    color: black;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -116,7 +116,7 @@
 /* Dots */
 .slick-dotted.slick-slider
 {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .slick-dots
@@ -201,4 +201,23 @@
 {
     opacity: .75;
     color: black;
+}
+.slick-slide
+{
+    position: relative;
+}
+.slick-slider
+{
+    margin-bottom: 30px;
+}
+.slick-title
+{
+    color: #fff;
+    background: #000;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 6px 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
