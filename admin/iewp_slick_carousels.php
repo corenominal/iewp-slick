@@ -45,7 +45,7 @@ function iewp_slick_carousels_callback()
         	</thead>
 
         	<tbody id="the-list">
-        		<tr><td colspan="3">Loading carousels ...</td></tr>
+        		<tr><td colspan="5">Loading carousels ...</td></tr>
         	</tbody>
         </table>
 
