@@ -11,7 +11,7 @@ function iewp_slick_carousels_admin( $request_data )
     /**
 	 * Test for api key action
 	 */
-    if( $data['apikey'] != $apikey )
+    if( !isset( $data['apikey'] ) || $data['apikey'] !== $apikey || $data['apikey'] === '' )
     {
         $data['error'] = 'Invalid API key';
         return $data;
