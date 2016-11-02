@@ -34,7 +34,7 @@ jQuery(document).ready(function($)
                     carousels += '<button data-id="' + carousel.id + '" class="button iewp-slick-edit-carousel-button">Edit</button> ';
 					carousels += '<button data-id="' + carousel.id + '" class="button iewp-slick-remove-carousel-button">Remove</button>';
 					carousels += '<div class="remove-carousel-prompt remove-carousel-prompt' + carousel.id + '">';
-					carousels += '<span>Are you sure?</span>';
+					carousels += '<span>This action cannot be undone and any associated slides will be deleted. Are you sure?</span>';
 					carousels += '<button data-id="' + carousel.id + '" class="button remove-carousel-prompt-yes">Yes</button> ';
 					carousels += '<button data-id="' + carousel.id + '" class="button remove-carousel-prompt-no">No</button>';
 					carousels += '</div>';
