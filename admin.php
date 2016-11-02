@@ -27,7 +27,7 @@ function iewp_slick_admin_options()
 	);
 
 	add_submenu_page(
-		null, // no parent slug (removes from menu) admin.php?page=iewp_slick_carousels_edit
+		'iewp_slick_carousels', // parent slug
 		'Slick Carousels - Edit', // page title
 		'Edit', // menu title
 		'edit_posts', // capability

@@ -7,10 +7,13 @@ if ( ! defined( 'WPINC' ) ) { die('Direct access prohibited!'); }
 function iewp_slick_carousels_edit_scripts( $hook )
 {
 
-	if( 'admin_page_iewp_slick_carousels_edit' != $hook )
+	if( 'slick-carousels_page_iewp_slick_carousels_edit' != $hook )
 	{
 		return;
 	}
+
+	wp_register_style( 'iewp_slick_carousels_all_css', plugin_dir_url( __FILE__ ) . 'css/iewp_slick_carousels_all.css', array(), '0.0.1', 'all' );
+	wp_enqueue_style( 'iewp_slick_carousels_all_css' );
 
 	wp_register_style( 'iewp_slick_carousels_edit_css', plugin_dir_url( __FILE__ ) . 'css/iewp_slick_carousels_edit.css', array(), '0.0.1', 'all' );
 	wp_enqueue_style( 'iewp_slick_carousels_edit_css' );
