@@ -147,7 +147,6 @@ function iewp_slick_do_js()
         $iewp_slick_js .= "}";
         $iewp_slick_js .= "";
         $iewp_slick_js .= "});";
-        $iewp_slick_js .= "console.log('magnific-popup enabled');";
         $iewp_slick_js .= "});";
         $iewp_slick_js .= "</script>";
     }
