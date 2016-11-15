@@ -117,7 +117,11 @@ function iewp_slick_carousel( $atts, $content = null )
     $iewp_slick_js .= "});";
     $iewp_slick_js .= "</script>";
 
+    add_action( 'wp_footer', 'iewp_slick_do_js', 100);
+
     return $html;
+
+
 
 }
 add_shortcode( 'iewp-slick-carousel', 'iewp_slick_carousel' );
@@ -150,4 +154,3 @@ function iewp_slick_do_js()
 
     echo $iewp_slick_js;
 }
-add_action( 'wp_footer', 'iewp_slick_do_js', 100);
