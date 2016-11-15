@@ -53,3 +53,13 @@ add_action( 'admin_menu', 'iewp_slick_admin_options' );
 require_once( plugin_dir_path( __FILE__ ) . 'admin/iewp_slick_carousels.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'admin/iewp_slick_carousels_create.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'admin/iewp_slick_carousels_edit.php' );
+
+/**
+ * Enqueue additional CSS
+ */
+function iewp_slick_enqueue_css()
+{
+	wp_register_style( 'iewp_slick_carousels_all_css', plugin_dir_url( __FILE__ ) . 'admin/css/iewp_slick_carousels_all.css', array(), '0.0.1', 'all' );
+	wp_enqueue_style( 'iewp_slick_carousels_all_css' );
+}
+add_action( 'admin_enqueue_scripts', 'iewp_slick_enqueue_css' );
